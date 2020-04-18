@@ -2,21 +2,71 @@ import { Action } from '@ngrx/store';
 import { ShoppingItem } from '../models/shopping-item.model';
 
 export enum ShoppingActionTypes {
-    ADD_ITEM            = '[ADD_ITEM] Add Item',
-    ADD_ITEM_SUCCESS    = '[ADD_ITEM] Add Item Success',
-    ADD_ITEM_FAILURE    = '[ADD_ITEM] Add Item Failure',
-    DELETE_ITEM         = '[DELETE_ITEM] Delete Item',
+    LOAD_SHOPPING           = '[SHOPPING] Loading',
+    LOAD_SHOPPING_SUCCESS   = '[SHOPPING] Loading Success',
+    LOAD_SHOPPING_FAILURE   = '[SHOPPING] Loading Failure',
+    ADD_ITEM                = '[SHOPPING] Add Item',
+    ADD_ITEM_SUCCESS        = '[SHOPPING] Add Item Success',
+    ADD_ITEM_FAILURE        = '[SHOPPING] Add Item Failure',
+    DELETE_ITEM             = '[SHOPPING] Delete Item',
+    DELETE_ITEM_SUCCESS     = '[SHOPPING] Delete Item Success',
+    DELETE_ITEM_FAILURE     = '[SHOPPING] Delete Item Failure',
 }
 
-export class AddItemAction implements Action {
-    readonly type = ShoppingActionTypes.ADD_ITEM;
-    constructor(public payload: ShoppingItem) {}
-}
-
-export class DeleteItemAction implements Action {
-    readonly type = ShoppingActionTypes.DELETE_ITEM;
-    constructor(public payload: String) {} 
-}
-
-export type ShoppingAction = AddItemAction | DeleteItemAction;
-
+export class LoadShoppingAction implements Action {
+    readonly type = ShoppingActionTypes.LOAD_SHOPPING
+  }
+  export class LoadShoppingSuccessAction implements Action {
+    readonly type = ShoppingActionTypes.LOAD_SHOPPING_SUCCESS
+  
+    constructor(public payload: Array<ShoppingItem>) {}
+  
+  }
+  export class LoadShoppingFailureAction implements Action {
+    readonly type = ShoppingActionTypes.LOAD_SHOPPING_FAILURE
+    
+    constructor(public payload: Error) {}
+  }
+  
+  export class AddItemAction implements Action {
+    readonly type = ShoppingActionTypes.ADD_ITEM
+  
+    constructor(public payload: ShoppingItem) { }
+  }
+  export class AddItemSuccessAction implements Action {
+    readonly type = ShoppingActionTypes.ADD_ITEM_SUCCESS
+  
+    constructor(public payload: ShoppingItem) { }
+  }
+  export class AddItemFailureAction implements Action {
+    readonly type = ShoppingActionTypes.ADD_ITEM_FAILURE
+  
+    constructor(public payload: Error) { }
+  }
+  
+  export class DeleteItemAction implements Action {
+    readonly type = ShoppingActionTypes.DELETE_ITEM
+  
+    constructor(public payload: string) { }
+  }
+  
+  export class DeleteItemSuccessAction implements Action {
+    readonly type = ShoppingActionTypes.DELETE_ITEM_SUCCESS
+  
+    constructor(public payload: string) { }
+  }
+  export class DeleteItemFailureAction implements Action {
+    readonly type = ShoppingActionTypes.DELETE_ITEM_FAILURE
+  
+    constructor(public payload: string) { }
+  }
+  
+  export type ShoppingAction = AddItemAction |
+    AddItemSuccessAction |
+    AddItemFailureAction |
+    DeleteItemAction |
+    DeleteItemSuccessAction |
+    DeleteItemFailureAction |
+    LoadShoppingAction |
+    LoadShoppingFailureAction |
+    LoadShoppingSuccessAction;

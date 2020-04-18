@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. npm i @ngrx/store
 2. ng add @ngrx/store-devtools
+3. npm i json-server 
+    3.1. json-server db.json # command to run
+4. npm i @ngrx/effects
+    4.1. ng add @ngrx/effects # setup the effects
 
 ## Development server
 

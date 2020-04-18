@@ -1,5 +1,6 @@
 body {
     background-color: #576574;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #wrapper {
@@ -57,4 +58,8 @@ body {
     background: #10ac84;
     padding: 10px 0px;
     margin: 0px;
+  }
+
+  .loading {
+    box-shadow: 20px 20px 0px pink !important;
   }
